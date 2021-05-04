@@ -1,6 +1,7 @@
 class Account {
   constructor() {
     this.balance = Account.DEFAULT_BALANCE;
+    this.transactions = [];
   }
 
   checkBalance() {
