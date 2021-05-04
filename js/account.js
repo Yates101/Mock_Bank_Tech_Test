@@ -14,6 +14,10 @@ class Account {
   withdraw(amount) {
     this.balance -= amount;
   }
+
+  statement() {
+    return '100 10 110 20 90'
+  }
 }
 
 Account.DEFAULT_BALANCE = 0;

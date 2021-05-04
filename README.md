@@ -35,10 +35,20 @@ date || credit || debit || balance
 * Jest was used for the testing of this project * for setup, run the following within the directory:
 
 ```
-npm install --save-dev jest
+npm install --save-dev jest-extended
+```
+* Then, ensure the following is in your package.json:
+
+```
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["jest-extended"]
+  }
 ```
 
-* Now, simply run `jest` to run the existing testing suite.
+* Now, simply enter `jest` in your command line to run the existing testing suite.
 
 #### Feature Testing
 * For feature testing, open the provided index.html file in chrome, open the console, and enter any of the following commands to see the response. (The examples given carry out the requirements)

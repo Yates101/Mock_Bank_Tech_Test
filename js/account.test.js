@@ -24,4 +24,12 @@ describe('Withdrawal function', () => {
     expect(testAccount.balance).toEqual(90);
   })
 })
- 
+
+describe('Statement function', () => {
+  test('returns a history of the previous tranactions, along with the balance', () => {
+    testAccount.deposit(100);  
+    testAccount.deposit(10);
+    testAccount.withdraw(20);
+    expect(testAccount.statement()).toIncludeMultiple(['100', '10', '110', '20', '90']);
+  })
+})
