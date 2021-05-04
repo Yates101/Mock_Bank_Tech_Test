@@ -6,6 +6,10 @@ class Account {
   checkBalance() {
     return this.balance;
   }
+
+  deposit() {
+    this.balance = 10;
+  }
 }
 
 Account.DEFAULT_BALANCE = 0;
