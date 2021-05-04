@@ -1,8 +1,8 @@
 class Transaction {
-  constructor(date, type) {
+  constructor(date, type, amount) {
     this.date = date;
     this.type = type;
-    this.amount = 100;
+    this.amount = amount;
   }
 }
 
