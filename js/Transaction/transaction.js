@@ -1,6 +1,6 @@
 class Transaction {
   constructor(date) {
-    this.date = '10-10-2020'
+    this.date = date
   }
 }
 
