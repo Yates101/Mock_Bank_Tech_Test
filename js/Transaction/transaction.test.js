@@ -1,6 +1,6 @@
 const Transaction = require('./transaction');
 
-beforeEach(() => { testTransaction = new Transaction('10-10-2020', 'deposit') });
+beforeEach(() => { testTransaction = new Transaction('10-10-2020', 'deposit', 100) });
 
 describe('Transaction stored attributes', () => {
   test('initializes with a date attribute', () => {
@@ -9,5 +9,9 @@ describe('Transaction stored attributes', () => {
 
   test('initializes with a type attribute', () => {
     expect(testTransaction.type).toEqual('deposit');
+  })
+
+  test('initializes with an amount attribute', () => {
+    expect(testTransaction.amount).toEqual(100);
   })
 })
