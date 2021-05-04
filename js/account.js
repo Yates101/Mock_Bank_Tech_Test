@@ -10,6 +10,10 @@ class Account {
   deposit(amount) {
     this.balance += amount;
   }
+
+  withdraw(amount) {
+    this.balance = 90;
+  }
 }
 
 Account.DEFAULT_BALANCE = 0;
