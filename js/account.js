@@ -12,7 +12,7 @@ class Account {
   }
 
   withdraw(amount) {
-    this.balance = 90;
+    this.balance -= amount;
   }
 }
 
