@@ -32,7 +32,6 @@ describe('Statement function', () => {
 
   test('returns the balance, as adjusted by deposit', () => {
     testAccount.deposit(10);
-    testAccount.deposit(20);
-    expect(testAccount.statement()).toIncludeMultiple(['10', '20', '30']);
+    expect(testAccount.statement()).toIncludeRepeated('10', 2);
   })
 })
