@@ -21,7 +21,12 @@ describe('Withdrawal function', () => {
 
 describe('Statement function', () => {
   test('returns a history of a previous deposit', () => {
-    testAccount.deposit(100);  
-    expect(testAccount.statement()).toInclude('100');
+    testAccount.deposit(10);  
+    expect(testAccount.statement()).toInclude('10');
+  })
+
+  test('returns a history of a previous withdrawal', () => {
+    testAccount.withdraw(10);  
+    expect(testAccount.statement()).toInclude('10');
   })
 })

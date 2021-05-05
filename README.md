@@ -68,3 +68,23 @@ testAccount.withdraw(500, 14-01-2012);
 testAccount.checkBalance();
 ```
 
+### Design Progression
+
+Given the acceptance and user requirements, I will build my program up, in the following inputs and outputs:
+
+|        input          |                            output                        |
+|                       |                                                          |
+| deposit 10            |                 balance increases by 10                  |
+| withdraw 10           |                 balance decreases by 10                  |
+| deposit 10            |          statement function returns amount of 10         |
+| withdraw 10           |          statement funciton returns amount of 10         |
+| deposit 10            |        statement function also returns balance of 10     |
+| withdraw 10           |     statement function also returns balance of 10 less   |
+| deposit               |    statement function also returns date of transaction   |
+| withdrawal            |    statement function also returns date of transaction   |
+| multiple transactions |     statement returns data of multiple transactions      |
+| multiple deposits     |       statement returns data in correct formatting       |
+| multiple withdrawals  |       statement returns data in correct formatting       |
+| multiple transactions |       statement returns data in correct formatting       | 
+
+As it is not covered in the requirements, and perhaps would be handled by a different system, I will not be handling edge cases, however I would then consider going on to handle withdrawals that are greater than the balance, as well as transactions with incorrect data, e.g. negative amounts, dates that come before previous etc.
