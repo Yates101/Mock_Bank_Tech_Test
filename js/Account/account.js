@@ -15,7 +15,7 @@ class Account {
 
   withdraw(amount) {
     this.balance -= amount;
-    this.transactions.push(new Transaction(amount.toString(), '-10'));
+    this.transactions.push(new Transaction(amount.toString(), this.balance));
   }
 
   statement() {
