@@ -6,12 +6,12 @@ class Account {
 
   deposit (amount, date) {
     this.balance += amount
-    this.transactionHistory.push(new Transaction(amount.toString(), this.balance, date, 'deposit'))
+    this.transactionHistory.push(new Deposit(amount, this.balance, date))
   }
 
   withdraw (amount, date) {
     this.balance -= amount
-    this.transactionHistory.push(new Transaction(amount.toString(), this.balance, date, 'withdrawal'))
+    this.transactionHistory.push(new Withdrawal(amount, this.balance, date))
   }
 
   statement () {
@@ -26,7 +26,7 @@ class Account {
 
 Account.DEFAULT_BALANCE = 0
 
-class Transaction {
+class Deposit {
   constructor (amount, balance, date, type) {
     this.amount = amount
     this.associatedBalance = balance
@@ -35,11 +35,19 @@ class Transaction {
   }
 
   statementFormat () {
-    if (this.type === 'deposit') {
       return `${this.date} || ${this.amount}.00 || || ${this.associatedBalance}.00\n`
-    } else if (this.type === 'withdrawal') {
+  }
+}
+
+class Withdrawal {
+  constructor (amount, balance, date) {
+    this.amount = amount
+    this.associatedBalance = balance
+    this.date = date
+  }
+
+  statementFormat () {
       return `${this.date} || || ${this.amount}.00 || ${this.associatedBalance}.00\n`
-    }
   }
 }
 
