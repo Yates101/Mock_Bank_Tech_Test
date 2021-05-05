@@ -56,16 +56,16 @@ npm install --save-dev jest-extended
 testAccount = new Account();
 ```
 ```console
-testAccount.deposit(1000, 10-01-2012);
+testAccount.deposit(1000, '10/01/2012');
 ```
 ```console
-testAccount.deposit(2000, 13-01-2012);
+testAccount.deposit(2000, '13/01/2012');
 ```
 ```console
-testAccount.withdraw(500, 14-01-2012);
+testAccount.withdraw(500, '14/01/2012');
 ```
 ```console
-testAccount.checkBalance();
+testAccount.statement();
 ```
 
 ### Design Progression
