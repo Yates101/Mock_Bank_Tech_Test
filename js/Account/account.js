@@ -19,7 +19,7 @@ class Account {
   }
 
   statement() {
-    var statement = ""
+    var statement = "date || credit || debit || balance\n"
     this.transactions.forEach(transaction => {
       if(transaction.type === 'deposit') {
         statement += `${transaction.date} || ${transaction.amount}.00 || || ${transaction.associatedBalance}.00\n`

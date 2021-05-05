@@ -71,5 +71,13 @@ describe('Statement function', () => {
         expect.stringContaining('10/10/1010 || || 10.00 || -10.00')
       )
     })
+
+    test('multiple transactions are formatted correctly', () => {
+      testAccount.deposit(100, '10/10/1010');
+      testAccount.withdraw(10, '11/10/1010');
+      expect(testAccount.statement()).toEqual(
+        'date || credit || debit || balance\n10/10/1010 || 100.00 || || 100.00\n11/10/1010 || || 10.00 || 90.00\n'
+      )      
+    })
   })
 })
