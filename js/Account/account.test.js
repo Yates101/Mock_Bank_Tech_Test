@@ -20,13 +20,19 @@ describe('Withdrawal function', () => {
 })
 
 describe('Statement function', () => {
-  test('returns a history of a previous deposit', () => {
+  test('returns a history of a previous deposit amount', () => {
     testAccount.deposit(10);  
     expect(testAccount.statement()).toInclude('10');
   })
 
-  test('returns a history of a previous withdrawal', () => {
+  test('returns a history of a previous withdrawal amount', () => {
     testAccount.withdraw(10);  
     expect(testAccount.statement()).toInclude('10');
+  })
+
+  test('returns the balance, as adjusted by deposit', () => {
+    testAccount.deposit(10);
+    testAccount.deposit(20);
+    expect(testAccount.statement()).toIncludeMultiple(['10', '20', '30']);
   })
 })
