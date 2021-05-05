@@ -34,4 +34,9 @@ describe('Statement function', () => {
     testAccount.deposit(10);
     expect(testAccount.statement()).toIncludeRepeated('10', 2);
   })
+
+  test('returns the balance, as adjusted by withrawal', () => {
+    testAccount.withdraw(10);
+    expect(testAccount.statement()).toIncludeMultiple(['10', '-10']);
+  })
 })
