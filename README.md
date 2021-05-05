@@ -5,7 +5,7 @@ A simple banking program, written in Javascript
 ### Testing
 
 #### Unit Testing
-* Jest was used for the testing of this project * for setup, run the following within the directory:
+* Jest was used for the testing of this project. For setup, run the following within the directory:
 
 ```
 npm install --save-dev jest-extended
@@ -24,7 +24,7 @@ npm install --save-dev jest-extended
 * Now, simply enter `jest --coverage` in your command line to run the existing testing suite, with included coverage data.
 
 #### Feature Testing
-* For feature testing, open the provided index.html file in chrome, open the console, and enter any of the following commands to see the response. (The examples given carry out the requirements)
+* For feature testing, open the provided index.html file in chrome, open the console, and enter any of the following commands to see the response. (The examples given carry out the requirements of the acceptance criteria)
 ```console
 testAccount = new Account();
 ```
@@ -74,19 +74,36 @@ date || credit || debit || balance
 
 Given the acceptance and user requirements, I will build my program up, in the following inputs and outputs:
 
-|        input          |                            output                        |
-|                       |                                                          |
-| deposit 10            |                 balance increases by 10                  |
-| withdraw 10           |                 balance decreases by 10                  |
-| deposit 10            |          statement function returns amount of 10         |
-| withdraw 10           |          statement funciton returns amount of 10         |
-| deposit 10            |        statement function also returns balance of 10     |
-| withdraw 10           |     statement function also returns balance of 10 less   |
-| deposit               |    statement function also returns date of transaction   |
-| withdrawal            |    statement function also returns date of transaction   |
-| multiple transactions |     statement returns data of multiple transactions      |
-| single deposit        |       statement returns data in correct formatting       |
-| single withdrawal     |       statement returns data in correct formatting       |
-| multiple transactions |       statement returns data in correct formatting       | 
+| input  |  output  |
+| ------ |  ------- |
+| deposit 10 | balance increases by 10 |
+| withdraw 10 | balance decreases by 10 |
+| deposit 10 | statement function returns amount of 10 |
+| withdraw 10 | statement funciton returns amount of 10 |
+| deposit 10 | statement function also returns balance of 10 |
+| withdraw 10 | statement function also returns balance of 10 less |
+| deposit | statement function also returns date of transaction |
+| withdrawal | statement function also returns date of transaction |
+| multiple transactions | statement returns data of multiple transactions |
+| single deposit | statement returns data in correct formatting |
+| single withdrawal | statement returns data in correct formatting |
+| multiple transactions | statement returns data in correct formatting | 
 
-As it is not covered in the requirements, and perhaps would be handled by a different system, I will not be handling edge cases, however I would then consider going on to handle withdrawals that are greater than the balance, as well as transactions with incorrect data, e.g. negative amounts, dates that come before previous etc.
+### Further Consideration
+
+As they are not covered in the requirements, and perhaps would be handled by a different system, I will not be designing the handling of certain edge cases.
+
+However, given the go ahead, I would look to prevent the following:
+* Withdrawls that are greater than the current balance
+* Transactions that are parsed with the incorrect data e.g. the wrong data type, negative integers, dates that precede the previous transaction/current date etc.
+
+I would also consider improving the system in the following ways:
+* Using Date instances to improve accuracy within the transactions
+* External and secured storage of information as well as encrytped account details
+* Unique identifier numbers, attached to Account instances
+
+### Code Quality
+
+Jest and the community supported jest-extended matchers were used for testing. This decision was made due to the affable interface and the built in coverage capabilities of jest, along with the flexibility and accuracy that the extended matchers provide.
+
+The code within this project was passed through ESLint to ensure it fit with standard conventions.
