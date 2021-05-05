@@ -10,6 +10,7 @@ class Account {
 
   deposit(amount) {
     this.balance += amount;
+    this.transactions.push(new Transaction(amount));
   }
 
   withdraw(amount) {
@@ -22,5 +23,11 @@ class Account {
 }
 
 Account.DEFAULT_BALANCE = 0;
+
+class Transaction {
+  constructor(amount) {
+    this.amount = amount;
+  }
+}
 
 module.exports = Account;

@@ -2,15 +2,6 @@ const Account = require('./account')
 
 beforeEach(() => { testAccount = new Account() });
 
-describe('Account constructor function', () => {
-  test('initializes account with a default balance of zero', () => {
-    expect(testAccount.balance).toEqual(0);
-  })
-  test('initializes account with an empty transactions array', () => {
-    expect(testAccount.transactions).toEqual([]);
-  })
-})
-
 describe('Deposit function', () => {
   test('updates the balance value by adding the given amount', () => {
     expect(testAccount.balance).toEqual(0);
