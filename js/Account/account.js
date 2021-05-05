@@ -15,7 +15,7 @@ class Account {
   }
 
   statement () {
-    let statement = 'date || credit || debit || balance\n'
+    let statement = Account.STATEMENT_HEADER
     this.transactionHistory.reverse().forEach(transaction => {
       statement += transaction.statementFormat()
     })
@@ -25,6 +25,7 @@ class Account {
 }
 
 Account.DEFAULT_BALANCE = 0
+Account.STATEMENT_HEADER = 'date || credit || debit || balance\n'
 
 class Deposit {
   constructor (amount, balance, date, type) {
