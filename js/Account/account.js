@@ -17,15 +17,10 @@ class Account {
   statement() {
     var statement = "date || credit || debit || balance\n"
     this.transactions.reverse().forEach(transaction => {
-      if(transaction.type === 'deposit') {
-        statement += `${transaction.date} || ${transaction.amount}.00 || || ${transaction.associatedBalance}.00\n`
-      } else if (transaction.type === 'withdrawal') {
-        statement += `${transaction.date} || || ${transaction.amount}.00 || ${transaction.associatedBalance}.00\n`
-      }
+      statement += transaction.statementFormat()
     })
     console.log(statement);
     return statement;
-
   }
 }
 
@@ -37,6 +32,14 @@ class Transaction {
     this.associatedBalance = balance
     this.date = date
     this.type = type
+  }
+
+  statementFormat() {
+    if(this.type === 'deposit') {
+      return `${this.date} || ${this.amount}.00 || || ${this.associatedBalance}.00\n`
+    } else if (this.type === 'withdrawal') {
+      return `${this.date} || || ${this.amount}.00 || ${this.associatedBalance}.00\n`
+    }
   }
 }
 
