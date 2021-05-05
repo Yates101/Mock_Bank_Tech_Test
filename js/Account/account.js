@@ -13,13 +13,17 @@ class Account {
     this.transactions.push(new Transaction(amount.toString(), this.balance, date));
   }
 
-  withdraw(amount) {
+  withdraw(amount, date) {
     this.balance -= amount;
-    this.transactions.push(new Transaction(amount.toString(), this.balance));
+    this.transactions.push(new Transaction(amount.toString(), this.balance, date));
   }
 
   statement() {
-    return `${this.transactions[0].date} ${this.transactions[0].amount} ${this.transactions[0].associatedBalance}`
+    var statement = ""
+    this.transactions.forEach(trans =>
+     statement += `${trans.date} ${trans.amount} ${trans.associatedBalance}\n`
+    )
+    return statement;
   }
 }
 

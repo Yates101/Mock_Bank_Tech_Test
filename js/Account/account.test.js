@@ -44,4 +44,17 @@ describe('Statement function', () => {
     testAccount.deposit(10, '10/10/1010');
     expect(testAccount.statement()).toInclude('10/10/1010')
   })
+
+  test('returns date of a withdrawal transaction', () => {
+    testAccount.withdraw(10, '10/10/1010');
+    expect(testAccount.statement()).toInclude('10/10/1010')
+  })
+
+  test('statement function returns data of multiple transactions', () => {
+    testAccount.deposit(10, '10/10/1010');
+    testAccount.deposit(40, '11/11/1011');
+    testAccount.withdraw(20, '12/12/1012');
+    console.log(testAccount.statement());
+    expect(testAccount.statement()).toIncludeMultiple(['10', '40', '50', '20', '30', '10/10/1010', '11/11/1011', '12/12/1012']);
+  })
 })
