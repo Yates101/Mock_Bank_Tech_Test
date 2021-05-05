@@ -10,19 +10,23 @@ class Account {
 
   deposit(amount, date) {
     this.balance += amount;
-    this.transactions.push(new Transaction(amount.toString(), this.balance, date));
+    this.transactions.push(new Transaction(amount.toString(), this.balance, date, 'deposit'));
   }
 
   withdraw(amount, date) {
     this.balance -= amount;
-    this.transactions.push(new Transaction(amount.toString(), this.balance, date));
+    this.transactions.push(new Transaction(amount.toString(), this.balance, date, 'withdrawal'));
   }
 
   statement() {
     var statement = ""
-    this.transactions.forEach(trans =>
-     statement += `${trans.date} || ${trans.amount}.00 || || ${trans.associatedBalance}.00\n`
-    )
+    this.transactions.forEach(transaction => {
+      if(transaction.type === 'deposit') {
+        statement += `${transaction.date} || ${transaction.amount}.00 || || ${transaction.associatedBalance}.00\n`
+      } else if (transaction.type === 'withdrawal') {
+        statement += `${transaction.date} || || ${transaction.amount}.00 || ${transaction.associatedBalance}.00\n`
+      }
+    })
     return statement;
   }
 }
@@ -30,10 +34,11 @@ class Account {
 Account.DEFAULT_BALANCE = 0;
 
 class Transaction {
-  constructor(amount, balance, date) {
+  constructor(amount, balance, date, type) {
     this.amount = amount;
     this.associatedBalance = balance
     this.date = date
+    this.type = type
   }
 }
 

@@ -60,9 +60,15 @@ describe('Statement function', () => {
   describe('Statement formatting', () => {
     test('a single deposit is formatted correctly', () => {
       testAccount.deposit(10, '10/10/1010');
-      console.log(testAccount.statement());
       expect(testAccount.statement()).toEqual(
         expect.stringContaining('10/10/1010 || 10.00 || || 10.00')
+      )
+    })
+
+    test('a single withdrawal is formatted correctly', () => {
+      testAccount.withdraw(10, '10/10/1010');
+      expect(testAccount.statement()).toEqual(
+        expect.stringContaining('10/10/1010 || || 10.00 || -10.00')
       )
     })
   })
