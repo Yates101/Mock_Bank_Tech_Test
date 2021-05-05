@@ -20,10 +20,8 @@ describe('Withdrawal function', () => {
 })
 
 describe('Statement function', () => {
-  test('returns a history of the previous tranactions, along with the balance', () => {
+  test('returns a history of a previous deposit', () => {
     testAccount.deposit(100);  
-    testAccount.deposit(10);
-    testAccount.withdraw(20);
-    expect(testAccount.statement()).toIncludeMultiple(['100', '10', '110', '20', '90']);
+    expect(testAccount.statement()).toInclude('100');
   })
 })

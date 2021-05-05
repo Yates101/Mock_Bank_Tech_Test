@@ -10,7 +10,7 @@ class Account {
 
   deposit(amount) {
     this.balance += amount;
-    this.transactions.push(new Transaction(amount));
+    this.transactions.push(new Transaction(amount.toString()));
   }
 
   withdraw(amount) {
@@ -18,7 +18,7 @@ class Account {
   }
 
   statement() {
-    return '100 10 110 20 90'
+    return this.transactions[0].amount;
   }
 }
 
