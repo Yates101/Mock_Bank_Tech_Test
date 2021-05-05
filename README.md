@@ -2,6 +2,45 @@
 
 A simple banking program, written in Javascript
 
+### Testing
+
+#### Unit Testing
+* Jest was used for the testing of this project * for setup, run the following within the directory:
+
+```
+npm install --save-dev jest-extended
+```
+* Then, ensure the following is in your package.json:
+
+```
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["jest-extended"]
+  }
+```
+
+* Now, simply enter `jest --coverage` in your command line to run the existing testing suite, with included coverage data.
+
+#### Feature Testing
+* For feature testing, open the provided index.html file in chrome, open the console, and enter any of the following commands to see the response. (The examples given carry out the requirements)
+```console
+testAccount = new Account();
+```
+```console
+testAccount.deposit(1000, '10/01/2012');
+```
+```console
+testAccount.deposit(2000, '13/01/2012');
+```
+```console
+testAccount.withdraw(500, '14/01/2012');
+```
+```console
+testAccount.statement();
+```
+
 ### User Requirements
 
 The requirements for this challenge were provided as following:
@@ -27,46 +66,9 @@ date || credit || debit || balance
 ```
 ## Solution Planning
 
+### Class Diagram
+
 ![image](./assets/classDiagram.png)
-
-### Testing
-
-#### Unit Testing
-* Jest was used for the testing of this project * for setup, run the following within the directory:
-
-```
-npm install --save-dev jest-extended
-```
-* Then, ensure the following is in your package.json:
-
-```
-  "scripts": {
-    "test": "jest"
-  },
-  "jest": {
-    "setupFilesAfterEnv": ["jest-extended"]
-  }
-```
-
-* Now, simply enter `jest` in your command line to run the existing testing suite.
-
-#### Feature Testing
-* For feature testing, open the provided index.html file in chrome, open the console, and enter any of the following commands to see the response. (The examples given carry out the requirements)
-```console
-testAccount = new Account();
-```
-```console
-testAccount.deposit(1000, '10/01/2012');
-```
-```console
-testAccount.deposit(2000, '13/01/2012');
-```
-```console
-testAccount.withdraw(500, '14/01/2012');
-```
-```console
-testAccount.statement();
-```
 
 ### Design Progression
 
