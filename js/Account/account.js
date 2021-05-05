@@ -4,10 +4,6 @@ class Account {
     this.transactions = [];
   }
 
-  checkBalance() {
-    return this.balance;
-  }
-
   deposit(amount, date) {
     this.balance += amount;
     this.transactions.push(new Transaction(amount.toString(), this.balance, date, 'deposit'));
