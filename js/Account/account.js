@@ -21,7 +21,7 @@ class Account {
   statement() {
     var statement = ""
     this.transactions.forEach(trans =>
-     statement += `${trans.date} ${trans.amount} ${trans.associatedBalance}\n`
+     statement += `${trans.date} || ${trans.amount}.00 || || ${trans.associatedBalance}.00\n`
     )
     return statement;
   }
