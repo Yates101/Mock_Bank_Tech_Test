@@ -39,4 +39,9 @@ describe('Statement function', () => {
     testAccount.withdraw(10);
     expect(testAccount.statement()).toIncludeMultiple(['10', '-10']);
   })
+
+  test('returns date of a deposit transaction', () => {
+    testAccount.deposit(10, '10/10/1010');
+    expect(testAccount.statement()).toInclude('10/10/1010')
+  })
 })

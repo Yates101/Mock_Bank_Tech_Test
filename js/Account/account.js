@@ -8,9 +8,9 @@ class Account {
     return this.balance;
   }
 
-  deposit(amount) {
+  deposit(amount, date) {
     this.balance += amount;
-    this.transactions.push(new Transaction(amount.toString(), this.balance));
+    this.transactions.push(new Transaction(amount.toString(), this.balance, date));
   }
 
   withdraw(amount) {
@@ -19,16 +19,17 @@ class Account {
   }
 
   statement() {
-    return `${this.transactions[0].amount} ${this.transactions[0].associatedBalance}`
+    return `${this.transactions[0].date} ${this.transactions[0].amount} ${this.transactions[0].associatedBalance}`
   }
 }
 
 Account.DEFAULT_BALANCE = 0;
 
 class Transaction {
-  constructor(amount, balance) {
+  constructor(amount, balance, date) {
     this.amount = amount;
     this.associatedBalance = balance
+    this.date = date
   }
 }
 
