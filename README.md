@@ -8,7 +8,7 @@ A simple banking program, written in Javascript
 * Jest was used for the testing of this project. For setup, run the following within the directory:
 
 ```
-npm install --save-dev jest-extended
+npm install
 ```
 * Then, ensure the following is in your package.json:
 
